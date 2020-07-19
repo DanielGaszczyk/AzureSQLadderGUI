@@ -62,6 +62,13 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.5</version>
                 <configuration>
+                          <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.sqldbsamples.Main</mainClass>
+                        </manifest>
+                    </archive>
                     <source>7</source>
                     <target>7</target>
                 </configuration>
