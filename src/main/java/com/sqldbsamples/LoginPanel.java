@@ -13,6 +13,7 @@ public class LoginPanel extends JPanel {
     private JTextField nameField; //pole na nazwę
     private JTextField cityField; //pole na adres
     private JTextField streetField;
+    private JTextField numField;
     private JTextField postalCodeField; //pole na punkty bezpieczenstwa
     private JTextField typeField;
     private JTextField securityRateField;
@@ -34,6 +35,9 @@ public class LoginPanel extends JPanel {
     }
     public String getStreet() {
         return streetField.getText();
+    }
+    public String getNumber() {
+        return numField.getText();
     }
     public String getPostalCode() {
         return postalCodeField.getText();
@@ -87,19 +91,21 @@ public class LoginPanel extends JPanel {
         JLabel name = new JLabel("Name: ");
         JLabel city = new JLabel("City: ");
         JLabel street = new JLabel("Street: ");
+        JLabel number = new JLabel("Number: ");
         JLabel postalCode = new JLabel("Postal Code: ");
         JLabel type = new JLabel("Type: ");
-        JLabel securityRate = new JLabel("securityRate: ");
-        JLabel staffWearingMasks = new JLabel("staffWearingMasks: ");
-        JLabel sanitizerAV = new JLabel("sanitizerAV: ");
-        JLabel distKept = new JLabel("distKept: ");
-        JLabel other = new JLabel("other: ");
-        JLabel isOpen = new JLabel("isOpen(True/false): ");
-        JLabel latitude = new JLabel("latitude: ");
-        JLabel longitude = new JLabel("longitude: ");
+        JLabel securityRate = new JLabel("Security Rate: ");
+        JLabel staffWearingMasks = new JLabel("Staff Wearing Masks: ");
+        JLabel sanitizerAV = new JLabel("Sanitizer AV: ");
+        JLabel distKept = new JLabel("Dist Kept: ");
+        JLabel other = new JLabel("Other: ");
+        JLabel isOpen = new JLabel("Is Open(True/false): ");
+        JLabel latitude = new JLabel("Latitude: ");
+        JLabel longitude = new JLabel("Longitude: ");
         nameField = new JTextField();
         cityField = new JTextField();
         streetField = new JTextField();
+        numField = new JTextField();
         postalCodeField = new JTextField();
         typeField = new JTextField();
         securityRateField = new JTextField();
@@ -115,13 +121,15 @@ public class LoginPanel extends JPanel {
 
         //pomocniczy panel do wprowadzania danych
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(13, 2));
+        inputPanel.setLayout(new GridLayout(14, 2));
         inputPanel.add(name);
         inputPanel.add(nameField);
         inputPanel.add(city);
         inputPanel.add(cityField);
         inputPanel.add(street);
         inputPanel.add(streetField);
+        inputPanel.add(number);
+        inputPanel.add(numField);
         inputPanel.add(postalCode);
         inputPanel.add(postalCodeField);
         inputPanel.add(type);

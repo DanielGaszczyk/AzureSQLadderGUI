@@ -34,6 +34,7 @@ public class LoginListener implements ActionListener {
         String name = loginPanel.getName();
         String city = loginPanel.getCity();
         String street = loginPanel.getStreet();
+        String number = loginPanel.getNumber();
         String postalCode = loginPanel.getPostalCode();
         String type = loginPanel.getType();
         String securityRate = loginPanel.getSecurityRate();
@@ -59,7 +60,7 @@ public class LoginListener implements ActionListener {
             String schema = connection.getSchema();
 
             // Create and execute a SELECT SQL statement.
-            String insertSql = "INSERT INTO mytable(NAME,CITY,STREET,POSTAL_CODE,TYPE,SECURITY_RAT,STAFF_WEARING_MASKS,SANITIZER_AV,DIST_KEPT,OTHER,ISOPEN,LATITUDE,LONGITUDE) VALUES ('" + name + "','" + city + "','" + street + "','" + postalCode + "','" + type + "','" + securityRate + "','" + staffWearingMasks + "','" + sanitizerAV + "','" + distKept + "','" + other + "','" + isOpen + "','" + latitude + "','" + longitude + "');";
+            String insertSql = "INSERT INTO mytable(NAME,CITY,STREET,NUM,TYPE,SECURITY_RAT,STAFF_WEARING_MASKS,SANITIZER_AV,DIST_KEPT,OTHER,ISOPEN,LATITUDE,LONGITUDE,POSTAL_CODE) VALUES ('" + name + "','" + city + "','" + street + "','" + number+ "','" + type + "','" + securityRate + "','" + staffWearingMasks + "','" + sanitizerAV + "','" + distKept + "','" + other + "','" + isOpen + "','" + latitude + "','" + longitude + "','" + postalCode + "');";
 
 
             try (Statement statement = connection.createStatement();
