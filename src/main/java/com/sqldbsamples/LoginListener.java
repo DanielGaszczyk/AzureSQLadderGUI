@@ -7,9 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -34,7 +32,7 @@ public class LoginListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         String name = loginPanel.getName();
-        String city = loginPanel. getCity();
+        String city = loginPanel.getCity();
         String street = loginPanel.getStreet();
         String postalCode = loginPanel.getPostalCode();
         String type = loginPanel.getType();
@@ -46,8 +44,6 @@ public class LoginListener implements ActionListener {
         String isOpen = loginPanel.getIsOpen();
         String latitude = loginPanel.getLatitude();
         String longitude = loginPanel.getLongitude();
-
-
 
 
         // Connect to database
@@ -63,21 +59,17 @@ public class LoginListener implements ActionListener {
             String schema = connection.getSchema();
 
             // Create and execute a SELECT SQL statement.
-            String insertSql ="INSERT INTO mytable(NAME,CITY,STREET,POSTAL_CODE,TYPE,SECURITY_RAT,STAFF_WEARING_MASKS,SANITIZER_AV,DIST_KEPT,OTHER,ISOPEN,LATITUDE,LONGITUDE) VALUES ('"+name+"','"+city+"','"+street+"','"+postalCode+"','"+type+"','"+securityRate+"','"+staffWearingMasks+"','"+sanitizerAV+"','"+distKept+"','"+other+"','"+isOpen+"','"+latitude+"','"+longitude+"');"  ;
+            String insertSql = "INSERT INTO mytable(NAME,CITY,STREET,POSTAL_CODE,TYPE,SECURITY_RAT,STAFF_WEARING_MASKS,SANITIZER_AV,DIST_KEPT,OTHER,ISOPEN,LATITUDE,LONGITUDE) VALUES ('" + name + "','" + city + "','" + street + "','" + postalCode + "','" + type + "','" + securityRate + "','" + staffWearingMasks + "','" + sanitizerAV + "','" + distKept + "','" + other + "','" + isOpen + "','" + latitude + "','" + longitude + "');";
 
 
             try (Statement statement = connection.createStatement();
-                 ResultSet resultSet = statement.executeQuery(insertSql))
-            {
-
+                 ResultSet resultSet = statement.executeQuery(insertSql)) {
+            } catch (Exception exception) {
+                JOptionPane.showMessageDialog(frame, "Sent");
             }
             connection.close();
-        }
-
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
